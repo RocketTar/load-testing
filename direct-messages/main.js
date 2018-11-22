@@ -48,7 +48,7 @@ const getTestUsers = (numOfTestUsers = 0) => {
     return users;
 }
 
-const sendMessage = (username = "", timeTypingInMs = 0, rid = "", message = "") => {
+const sendMessage = (username = "", rid = "", message = "", timeTypingInMs = 0) => {
     callMethod("stream-notify-room", [
         `${rid}/typing`,
         username,
@@ -66,7 +66,7 @@ const sendMessage = (username = "", timeTypingInMs = 0, rid = "", message = "") 
             msg: message
         }]);
     },
-    timeTyping);
+        timeTypingInMs);
 }
 
 const main = () => {
@@ -81,7 +81,7 @@ const main = () => {
     ]);
 
     createDMChat("omasim2");
-
+    sendMessage("omasim0", "afeEb45G3WxRd9Hnwpxcthn6hYKTsqRXvk", "from load testing", 4000)
 }
 
 main();
